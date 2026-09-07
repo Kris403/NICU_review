@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NICU Breastfeeding Interview Flashcards</title>
+
+<style>
+:root{
+  --primary:#0b5c8a;
+  --primary-dark:#084868;
+  --accent:#19a974;
+  --bg:#f4f8fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#64748b;
+  --shadow:0 15px 40px rgba(0,0,0,.12);
+  --radius:18px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,#f7fbff,#edf5fa);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  padding:1.25rem;
+  text-align:center;
+}
+
+header h1{
+  margin:.2rem 0;
+  color:var(--primary);
+  font-size:clamp(1.6rem,3vw,2.4rem);
+}
+
+header p{
+  margin:.25rem auto;
+  max-width:850px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.container{
+  width:min(920px,95%);
+  margin:auto;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.topbar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+
+.progress-wrap{
+  flex:1;
+  min-width:220px;
+}
+
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  font-size:.95rem;
+  margin-bottom:.35rem;
+  color:var(--muted);
+}
+
+.progress{
+  width:100%;
+  height:14px;
+  background:#dce8f1;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transition:width .3s ease;
+}
+
+.card-stage{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:.5rem 0;
+}
+
+.card{
+  width:min(760px,100%);
+  height:460px;
+  perspective:1200px;
+}
+
+.card-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform .6s ease;
+}
+
+.card.flipped .card-inner{
+  transform:rotateY(180deg);
+}
+
+.face{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:2rem;
+  backface-visibility:hidden;
+  overflow:auto;
+}
+
+.front{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.front .label,
+.back .label{
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--primary);
+  font-weight:700;
+  font-size:.8rem;
+}
+
+.front h2{
+  margin-top:1rem;
+  line-height:1.35;
+  font-size:clamp(1.4rem,2.6vw,2rem);
+}
+
+.flip-hint{
+  margin-top:1.2rem;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.back{
+  transform:rotateY(180deg);
+}
+
+.back h3{
+  color:var(--primary);
+  margin-top:.75rem;
+  margin-bottom:.5rem;
+}
+
+.back p,
+.back li{
+  line-height:1.65;
+}
+
+.back ul{
+  padding-left:1.25rem;
+}
+
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.75rem;
+  margin-bottom:1rem;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  background:var(--primary);
+  color:#fff;
+  padding:.8rem 1rem;
+  border-radius:12px;
+  font-size:1rem;
+  font-weight:600;
+  transition:.2s ease;
+}
+
+button:hover{
+  background:var(--primary-dark);
+}
+
+button.secondary{
+  background:#e6eef5;
+  color:#183247;
+}
+
+button.secondary:hover{
+  background:#d7e4ef;
+}
+
+button:focus-visible{
+  outline:4px solid #ffbf47;
+  outline-offset:3px;
+}
+
+.status{
+  text-align:center;
+  color:var(--muted);
+  padding-bottom:1rem;
+}
+
+footer{
+  text-align:center;
+  padding:1rem;
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+.sr-only{
+  position:absolute;
+  left:-9999px;
+}
+
+kbd{
+  background:#eef3f7;
+  border-radius:6px;
+  padding:.15rem .35rem;
+  border:1px solid #d8e3eb;
+}
+
+@media (max-width:700px){
+  .card{
+    height:540px;
+  }
+
+  .face{
+    padding:1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    scroll-behavior:auto;
+  }
+
+  .card-inner,
+  .progress-fill{
+    transition:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NICU Breastfeeding Interview Flashcards</h1>
+  <p>
+    Staff education review of Baby-Friendly NICU breastfeeding interview expectations.
+    Use the cards to practice key interview questions and expected maternal responses.
+  </p>
+</header>
+
+<main class="container">
+
+  <div class="topbar">
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="cardCounter">Card 1 of 6</span>
+        <span id="percentLabel">17%</span>
+      </div>
+
+      <div class="progress" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-stage">
+    <div class="card" id="flashcard">
+      <div class="card-inner">
+
+        <section class="face front">
+          <div class="label">Question</div>
+          <h2 id="frontText"></h2>
+          <div class="flip-hint">Select Flip Card or press Space / Enter.</div>
+        </section>
+
+        <section class="face back">
+          <div class="label">Answer</div>
+          <div id="backText"></div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="prevBtn" aria-label="Previous flashcard">◀ Previous</button>
+    <button id="flipBtn" aria-label="Flip flashcard">Flip Card</button>
+    <button id="nextBtn" aria-label="Next flashcard">Next ▶</button>
+    <button id="shuffleBtn" class="secondary">Shuffle</button>
+    <button id="restartBtn" class="secondary">Restart</button>
+  </div>
+
+  <div class="status">
+    Keyboard: <kbd>←</kbd> Previous |
+    <kbd>→</kbd> Next |
+    <kbd>Space</kbd> Flip |
+    <kbd>Home</kbd> Restart
+  </div>
+
+  <div class="sr-only" aria-live="polite" id="liveRegion"></div>
+
+</main>
+
+<footer>
+  Educational reference for staff preparation. Not intended as individualized medical advice.
+</footer>
+
+<script>
+const cards = [
+{
+front: "Who may be interviewed in the NICU for Baby-Friendly assessment?",
+back: `
+<h3>Interview Eligibility</h3>
+<ul>
+<li>Mothers who are breastfeeding or intending to breastfeed with infants in the NICU.</li>
+<li>This includes mothers who originally planned to exclusively breastfeed but are currently combination-feeding.</li>
+<li>Combination-feeding does NOT make a mother ineligible for interview.</li>
+</ul>
+`
+},
+{
+front: "Have you been able to visit your baby whenever you wanted?",
+back: `
+<h3>Expected Response</h3>
+<p>
+Mothers with infants in the NICU should report that they have had access to their infant in the NICU whenever they wanted.
+</p>
+`
+},
+{
+front: "Have you been shown how to express your breast milk?",
+back: `
+<h3>Hand Expression Teaching</h3>
+<p>Mothers should report they were shown how to hand express milk and be able to describe or demonstrate:</p>
+<ul>
+<li>C-shaped hand position</li>
+<li>Press straight back toward the chest</li>
+<li>Compress or press together</li>
+<li>Develop a rhythmic pattern</li>
+</ul>
+<p>
+Baby-Friendly may ask mothers about hand-expression teaching and demonstration.
+</p>
+`
+},
+{
+front: "How soon after birth should someone offer to show a mother how to hand express or pump breast milk?",
+back: `
+<h3>Milk Expression Timing</h3>
+<ul>
+<li>Guidance and support should be provided within the first 6 hours after birth.</li>
+<li>Preferably within 1–2 hours after birth.</li>
+<li>Preferably after completion of initial skin-to-skin contact when safe and medically feasible.</li>
+</ul>
+
+<p>
+WHO/UNICEF Standard: Mothers of preterm or sick infants report having been helped to express milk within 1–2 hours after birth.
+</p>
+`
+},
+{
+front: "What if expression support was not provided early after birth?",
+back: `
+<h3>Medically Justified Delay</h3>
+<p>
+If guidance or support for expression was not provided within the recommended timeframe,
+the mother should be able to describe the medically justifiable reason why early expression
+was not possible.
+</p>
+`
+},
+{
+front: "How often should mothers breastfeed, pump, or express milk to establish and maintain supply?",
+back: `
+<h3>Milk Supply Guidance</h3>
+<ul>
+<li>Breastfeed or express milk at least 8 times every 24 hours.</li>
+<li>Do not allow stretches longer than 4 hours.</li>
+<li>This guidance helps establish and maintain milk supply.</li>
+</ul>
+`
+}
+];
+
+let current = 0;
+let flipped = false;
+let deck = [...cards];
+
+const frontText = document.getElementById("frontText");
+const backText = document.getElementById("backText");
+const flashcard = document.getElementById("flashcard");
+const counter = document.getElementById("cardCounter");
+const percentLabel = document.getElementById("percentLabel");
+const progressFill = document.getElementById("progressFill");
+const liveRegion = document.getElementById("liveRegion");
+
+function renderCard(){
+  frontText.textContent = deck[current].front;
+  backText.innerHTML = deck[current].back;
+
+  counter.textContent = `Card ${current + 1} of ${deck.length}`;
+
+  const pct = Math.round(((current + 1) / deck.length) * 100);
+  percentLabel.textContent = `${pct}%`;
+  progressFill.style.width = `${pct}%`;
+
+  announce(`Card ${current + 1} of ${deck.length}`);
+}
+
+function announce(text){
+  liveRegion.textContent = text;
+}
+
+function flipCard(){
+  flipped = !flipped;
+  flashcard.classList.toggle("flipped");
+  announce(flipped ? "Answer shown" : "Question shown");
+}
+
+function nextCard(){
+  current = (current + 1) % deck.length;
+  resetFlip();
+  renderCard();
+}
+
+function prevCard(){
+  current = (current - 1 + deck.length) % deck.length;
+  resetFlip();
+  renderCard();
+}
+
+function resetFlip(){
+  flipped = false;
+  flashcard.classList.remove("flipped");
+}
+
+function shuffleCards(){
+  for(let i = deck.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+
+  current = 0;
+  resetFlip();
+  renderCard();
+  announce("Cards shuffled");
+}
+
+function restartDeck(){
+  deck = [...cards];
+  current = 0;
+  resetFlip();
+  renderCard();
+  announce("Deck restarted");
+}
+
+document.getElementById("flipBtn").addEventListener("click", flipCard);
+document.getElementById("nextBtn").addEventListener("click", nextCard);
+document.getElementById("prevBtn").addEventListener("click", prevCard);
+document.getElementById("shuffleBtn").addEventListener("click", shuffleCards);
+document.getElementById("restartBtn").addEventListener("click", restartDeck);
+
+flashcard.addEventListener("click", flipCard);
+
+document.addEventListener("keydown",(e)=>{
+  if(e.code === "Space" || e.key === "Enter"){
+    e.preventDefault();
+    flipCard();
+  }
+
+  if(e.key === "ArrowRight"){
+    nextCard();
+  }
+
+  if(e.key === "ArrowLeft"){
+    prevCard();
+  }
+
+  if(e.key === "Home"){
+    restartDeck();
+  }
+});
+
+renderCard();
+</script>
+
+</body>
+</html>
